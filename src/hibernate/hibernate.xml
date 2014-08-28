@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate">
+
+  <class name="Partido" table="PARTIDO">
+    <id name="id" column="PARTIDO_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Iniciales"/>
+    <property name="Nombre"/>
+    <property name="Imagen"/>
+  </class>
+
+  <class name="Nota" table="NOTA" >
+    <id name="id" column="NOTA_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Titulo"/>
+    <property name="Descripcion"/>
+
+    <set name="Partidos" table="PARTIDO_NOTA" lazy="false">
+      <key column="NOTA_ID"/>
+      <many-to-many column="PARTIDO_ID"
+                    class="Partido"/>
+    </set>
+
+    <set name="Articulos" table="ARTICULO_NOTA"  lazy="false">
+      <key column="NOTA_ID"/>
+      <many-to-many column="ARTICULO_ID"
+                    class="Articulo"/>
+    </set>
+  </class>
+    
+  <class name="Articulo" table="ARTICULO">
+    <id name="id" column="ARTICULO_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Titulo"/>
+    <property name="Url"/>
+    <property name="Autor"/>
+
+    <set name="Nota" table="ARTICULO_NOTA">
+      <key column="ARTICULO_ID"/>
+      <many-to-many column="NOTA_ID"
+                    class="Nota"/>
+    </set>
+  </class>
+
+  <class name="Usuario" table="USUARIO" >
+    <id name="id" column="USUARIO_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Email"/>
+    <property name="Contrasena"/>
+  </class>
+ 
+ </hibernate-mapping>

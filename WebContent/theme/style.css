@@ -1,0 +1,179 @@
+html, body {
+margin : 0;
+padding : 0;
+}
+body {
+color : #4E6D95;
+background : #3D5965 url(images/bg.jpg) repeat-x;
+width : 100%;
+font : 75% "lucida sans", "Trebuchet MS", Arial, Helvetica, Tahoma, sans-serif;
+}
+			/*links*/
+a:link, a:visited {
+color : #809E53;
+background : transparent;
+text-decoration : none;
+}
+a:hover {
+color : #5BA2D5;
+text-decoration : none;
+}
+a:active {
+color : #484500;
+text-decoration : none;
+}
+			/*container*/
+#container {
+width : 74%;
+margin : 0 auto;
+line-height: 2em;
+background : #fff;
+}
+			/*header*/
+#top {
+padding : 1em;
+height:100px;
+background : #3D5965 url(images/top.gif) no-repeat;
+color : #fff;
+}
+#top h1 {letter-spacing: 3px;
+float:left;
+padding : 30px 0 10px 40px;
+margin-left : 30px;
+font-size : 30pt;
+color: #ADD56F;
+background : transparent;
+}
+			/*main content*/
+#content {
+margin-left : 0px;
+border-left : 1px dotted #eee;
+margin-top : 5px;
+padding : 0.5em;
+color : #4E6D95;
+}
+			/*left sidebar*/
+#leftnav {
+float : left;
+width : 170px;
+margin-top : 30px;
+padding : 0 1em;
+}
+#leftnav p {
+margin : 0 0 1em 0;
+}
+#leftnav ul li{
+list-style-type:square;
+color: #809E53;
+}
+#leftnav ul li a{
+font-size: x-small;
+}
+			/*columns*/
+#columnbox {
+width: 700px;
+height: 250px;
+margin:0;
+}			
+.col3,.col3center {
+margin:20px 0;
+margin-left:2%;
+float: left;
+width: 28.5%;
+height:200px;
+border: 1px solid #eee;
+background : #F7FAFB url(images/column.gif) no-repeat;
+}
+.col3center {
+margin: 20px 3%;
+}
+.photos a,.films a,.music  a {
+color:#385E6E;
+}
+.photos a:hover,.films a:hover,.music  a:hover {
+color:#809E53;
+}
+			/*footer*/
+#footer {height:80px;
+clear : both;
+margin : 0;
+padding : .5em 0 1em 0;
+font-size : 0.9em;
+border-bottom : 0px solid #808080;
+border-top : 0px solid #808080;
+color : #333;
+background : #3D5965 url(images/footer.gif) no-repeat;
+}
+#footer img {
+float : right;
+}
+/* seen by IE5mac only, by Philippe Wittenbergh www.l-c-n.com */
+*>html #footer img {
+margin : 0;
+}
+/* end */
+#footer p {
+padding-left : 15px;
+}
+#footer a {
+color:#3D5965;
+}
+			/*typography*/
+img {
+border : none;
+}
+p {
+padding: 0 1em;
+}
+h1 {
+margin : 30px 0 0 30px;
+font-size : 175%;
+}
+h2 {
+margin : 10px 0 0 0;
+font-size : 130%;
+font-weight:bold;
+}
+h3 {
+margin : 5px 0 1em 0;
+text-align:center;
+font : 130% Helvetica, "lucida sans", "Trebuchet MS", Arial, Tahoma, sans-serif;
+letter-spacing:3px;
+color: #385E6E;
+}
+.quote {
+border-top : 1px solid #808080;
+padding : 10px;
+}
+			/*search & login*/
+#search {
+margin: 0 50px 0 0;
+float: right;
+color:#000;
+}
+legend {
+font-weight:bold;
+color:#fff;
+}
+.txtBox {
+background:#F7FAFB;
+}
+			/*clearer*/
+.clear {
+clear: both;
+display: block;
+overflow: hidden;
+width: 0;
+height: 0;
+}
+.imgcenter {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+/*top navigation*/
+#topnav{position:relative;display:block;height:30px;font-size:12px;font-weight:bold;letter-spacing:1px;background:transparent url(images/bgOFF.gif) repeat-x top left;font-family:Arial,Verdana,Helvitica,sans-serif;}
+#topnav ul{margin:0;padding:0;list-style-type:none;width:auto;}
+#topnav ul li{display:block;float:left;margin:0 1px 0 0;}
+#topnav ul li a{display:block;float:left;color:#4E6D95;text-decoration:none;padding:6px 20px 0 20px;height:24px;}
+#topnav ul li a:hover,#topnav ul li a.current{color:#fff;background:transparent url(images/bgON.gif) repeat-x top left;}

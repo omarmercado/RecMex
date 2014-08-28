@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+ 
+<bean name="/NewArticulo.htm" class="controllers.NewArticuloController" >
+    <property name="articulosDAO" ref="ArticulosDAO" />
+</bean>
+
+<bean name="/VerNota.htm" class="controllers.VerNotaController" >
+    <property name="notasDAO" ref="NotasDAO" />
+</bean>
+ 
+<bean name="/Portada.htm" class="controllers.PortadaController" >
+    <property name="partidosDAO" ref="PartidosDAO" />
+</bean>
+
+<bean name="/NuevoNota.htm" class="controllers.NuevoNotaController" >
+    <property name="partidosDAO" ref="PartidosDAO" />
+    <property name="notasDAO" ref="NotasDAO" />   
+    <property name="successView"  value="redirect:/Portada.htm" />
+</bean>    
+
+<bean name="/VerTodas.htm" class="controllers.VerTodasController" >
+    <property name="partidosDAO" ref="PartidosDAO" />
+    <property name="notasDAO" ref="NotasDAO" />          
+</bean>
+
+<bean name="/Ingresar.htm" class="controllers.UsuarioController" >
+    <property name="usuariosDAO" ref="UsuariosDAO" />
+</bean>
+ 
+ <bean name="/EliminarArticulo.htm" class="controllers.EliminarArticuloController" >
+    <property name="articulosDAO" ref="ArticulosDAO" />
+    <property name="notasDAO" ref="NotasDAO" />          
+</bean>
+
+ <bean name="/EditarNota.htm" class="controllers.EditarNotaController" >
+    <property name="notasDAO" ref="NotasDAO" />          
+</bean>
+
+ <bean name="/EliminarNota.htm" class="controllers.EliminarNotaController" >
+    <property name="notasDAO" ref="NotasDAO" />          
+</bean>
+
+
+    <bean id="viewResolver"
+    	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix">
+            <value>/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+</beans>
