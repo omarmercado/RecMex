@@ -1,6 +1,10 @@
 package DAO;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import helpers.Hash5;
+import hibernate.Usuario;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -41,6 +45,22 @@ public class UsuariosDAO {
 	return res;	
 	}
 	
-	
+	public int revisarSession(HttpServletRequest request){
+		
+		int res = 1;
+		
+		HttpSession session = request.getSession();
+		
+		Usuario usuario = (Usuario)session.getAttribute("usuario");
+		
+		if(usuario.getEmail() == null || usuario.getEmail().trim().equals("")
+				|| usuario.getContrasena() == null ||  usuario.getContrasena().trim().equals("")				
+				){			
+			res = 0;			
+		}
+		  
+
+		return res;
+	}
 	
 }

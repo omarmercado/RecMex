@@ -8,13 +8,20 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
  
-
-   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://localhost:3306/BaseDatos"/>
-    <property name="username" value="root"/>
-    <property name="password" value="MYSQLharry1980L"/>
+ 
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="location">
+         <value>file:C:\Users\omar\Desktop\PROYECYOS\Properties\RecPolitica.properties</value>
+      </property> 
+   </bean>
+  
+     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${BaseDatos.driverClassName}"/>
+    <property name="url" value="${BaseDatos.url}"/>
+    <property name="username" value="${BaseDatos.username}"/>
+    <property name="password" value="${BaseDatos.password}"/>
   </bean>
+  
   
   <bean id="mySessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
     <property name="dataSource" ref="dataSource"/>

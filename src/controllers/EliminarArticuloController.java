@@ -10,13 +10,15 @@ import org.springframework.web.servlet.mvc.AbstractController;
 
 import DAO.ArticulosDAO;
 import DAO.NotasDAO;
+import DAO.UsuariosDAO;
 
 public class EliminarArticuloController extends AbstractController {
 
 	
 	NotasDAO notasDAO;
 	ArticulosDAO articulosDAO;
-	
+	UsuariosDAO usuariosDAO;
+
 	public NotasDAO getNotasDAO() {
 		return notasDAO;
 	}
@@ -28,12 +30,27 @@ public class EliminarArticuloController extends AbstractController {
 	}
 	public void setArticulosDAO(ArticulosDAO articulosDAO) {
 		this.articulosDAO = articulosDAO;
+	}	
+	public UsuariosDAO getUsuariosDAO() {
+		return usuariosDAO;
+	}
+	public void setUsuariosDAO(UsuariosDAO usuariosDAO) {
+		this.usuariosDAO = usuariosDAO;
 	}
 	
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		int activeSession = usuariosDAO.revisarSession(request);
+		
+		if(activeSession == 0){
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("/Portada"); 
+			
+			return mv;
+		}
+		
 		String id = request.getParameter("txtId");
 		String notaid = request.getParameter("txtNotaId");
 		

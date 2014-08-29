@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import DAO.NotasDAO;
 import DAO.PartidosDAO;
+import DAO.UsuariosDAO;
 
 public class NuevoNotaController extends SimpleFormController{
 
@@ -25,7 +26,8 @@ public class NuevoNotaController extends SimpleFormController{
 	
 	PartidosDAO partidosDAO;
     NotasDAO notasDAO;
-	
+	UsuariosDAO usuariosDAO;
+
 	public PartidosDAO getPartidosDAO() {
 		return partidosDAO;
 	}
@@ -38,8 +40,13 @@ public class NuevoNotaController extends SimpleFormController{
 	public void setNotasDAO(NotasDAO notasDAO) {
 
 		this.notasDAO = notasDAO;
+	}	
+	public UsuariosDAO getUsuariosDAO() {
+		return usuariosDAO;
 	}
-	
+	public void setUsuariosDAO(UsuariosDAO usuariosDAO) {
+		this.usuariosDAO = usuariosDAO;
+	}
 	
 	@Override
 	protected Map<String, List<Partido>> referenceData(HttpServletRequest request ) throws Exception {
@@ -59,6 +66,15 @@ protected ModelAndView onSubmit(HttpServletRequest request,
 		HttpServletResponse response, Object command, BindException errors)
 		throws Exception {
 
+	int activeSession = usuariosDAO.revisarSession(request);
+	
+	if(activeSession == 0){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/Portada"); 
+		
+		return mv;
+	}
+	
  
  String[] partidosId=   request.getParameterValues("partidosId");
  notasDAO.insertNota((Nota)command, partidosId);

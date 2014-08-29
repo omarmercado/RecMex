@@ -7,6 +7,7 @@
  
 <bean name="/NewArticulo.htm" class="controllers.NewArticuloController" >
     <property name="articulosDAO" ref="ArticulosDAO" />
+    <property name="usuariosDAO" ref="UsuariosDAO" />       
 </bean>
 
 <bean name="/VerNota.htm" class="controllers.VerNotaController" >
@@ -20,6 +21,7 @@
 <bean name="/NuevoNota.htm" class="controllers.NuevoNotaController" >
     <property name="partidosDAO" ref="PartidosDAO" />
     <property name="notasDAO" ref="NotasDAO" />   
+    <property name="usuariosDAO" ref="UsuariosDAO" />    
     <property name="successView"  value="redirect:/Portada.htm" />
 </bean>    
 
@@ -34,15 +36,19 @@
  
  <bean name="/EliminarArticulo.htm" class="controllers.EliminarArticuloController" >
     <property name="articulosDAO" ref="ArticulosDAO" />
-    <property name="notasDAO" ref="NotasDAO" />          
+    <property name="notasDAO" ref="NotasDAO" />  
+    <property name="usuariosDAO" ref="UsuariosDAO" />
+            
 </bean>
 
  <bean name="/EditarNota.htm" class="controllers.EditarNotaController" >
-    <property name="notasDAO" ref="NotasDAO" />          
+    <property name="notasDAO" ref="NotasDAO" />
+    <property name="usuariosDAO" ref="UsuariosDAO" />
 </bean>
 
  <bean name="/EliminarNota.htm" class="controllers.EliminarNotaController" >
-    <property name="notasDAO" ref="NotasDAO" />          
+    <property name="notasDAO" ref="NotasDAO" />   
+    <property name="usuariosDAO" ref="UsuariosDAO" />       
 </bean>
 
 
