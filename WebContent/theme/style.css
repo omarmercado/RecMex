@@ -37,11 +37,11 @@ background : #3D5965 url(images/top.gif) no-repeat;
 color : #fff;
 }
 #top h1 {letter-spacing: 3px;
-float:left;
+float:center;
 padding : 30px 0 10px 40px;
-margin-left : 30px;
-font-size : 30pt;
-color: #ADD56F;
+margin-left : 130px;
+font-size : 40pt;
+color: red;
 background : transparent;
 }
 			/*main content*/

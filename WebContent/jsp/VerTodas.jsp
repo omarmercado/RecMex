@@ -22,13 +22,13 @@ function formSubmit(partidoId){
 <body>
 
 <div id="container">
-<div id="top"><h1>     <span style="color:#259FDA; font-size:14pt;">RecPolitica.com</span></h1></div>
+<div id="top"><h1><span>RecPolitica.com</span></h1></div>
 
 <div id="navcontainer">
 <div id="topnav">
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="VerTodas.htm" title="">Ver Todas</a></li>
+		<li><a href="Portada.htm">Portada</a></li>
+		<li><a href="VerTodas.htm">Ver Todas</a></li>
 		</ul>
 </div>
 </div>

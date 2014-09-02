@@ -14,7 +14,16 @@
 
 <body>
 
-<h1><span style="color:#259FDA; font-size:300%;">RecPolitica.com</span></h1>
+
+
+<div align="left" style="width: 10%">
+<img  width="100%" src="theme/images/REC.png" align="left" />
+</div>
+
+<h1><span style="color:red; font-size:300%;">RecPolitica.com</span></h1>
+
+
+
 
 <div id="container">
 

@@ -45,7 +45,7 @@ public class VerTodasController extends AbstractController{
 		    ListaNotas = notasDAO.getNotaPorPartido(partidoId);}
 		
 		
-		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1) {
+		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
 			    mv.setViewName("mobile/VerTodas");
 			  } else {
 				    mv.setViewName("/VerTodas");

@@ -35,7 +35,7 @@ public class VerNotaController extends AbstractController {
 	
 		ModelAndView mv = new ModelAndView();
 		
-		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1) {
+		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
 			    mv.setViewName("mobile/VerNota");
 			  } else {
 				    mv.setViewName("/VerNota");

@@ -15,16 +15,16 @@
 <body>
 
 <div id="container">
-<div id="top"><h1><span style="color:#259FDA; font-size:14pt;">RecPolitica.com</span></h1></div>
+<div id="top"><h1><span>RecPolitica.com</span></h1></div>
 
 <div id="navcontainer">
 <div id="topnav">
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="VerTodas.htm" title="">Ver Todas</a></li>
+		<li><a href="Portada.htm">Portada</a></li>
+		<li><a href="VerTodas.htm">Ver Todas</a></li>
 		
 		<c:if test="${sessionScope.usuario > 0}">
-          <li><a href="NuevoNota.htm" title="">Nueva Nota</a></li>
+          <li><a href="NuevoNota.htm">Nueva Nota</a></li>
         </c:if>
 
 		</ul>
@@ -43,13 +43,15 @@
           <td width="20%" height="300px" style="border: 1px solid #eee;background : #F7FAFB url(images/column.gif) no-repeat;">  
             <table width="100%" height="100%">
               <tr height="30%"> 
-                <td><img src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>"  width="50%"/></td> 
+                <td height="30%" width="30%">
+                  <img src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>" width="50%"/>
+                </td> 
               </tr>
               <tr height="70%" bgcolor="white">
                 <td style="background : #F7FAFB url(images/column.gif) no-repeat;" align="left" valign="top">  
                   <ul> 
                     <c:forEach var="notas" items="${map.value}">
-                      <li><a href="/RecMex/VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/></a></li>     
+                      <li><a href="VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/></a></li>     
                     </c:forEach>
                   </ul>
                 </td>         
@@ -65,7 +67,9 @@
           <td width="20%" height="300px"  style="border: 1px solid #eee;background : #F7FAFB url(images/column.gif) no-repeat;">  
             <table width="100%" height="100%">
               <tr height="30%"> 
-                <td><img src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>"  width="50%"/></td> 
+                <td height="30%" width="30%">
+                  <img src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>"width="50%"/>
+                </td> 
               </tr>
               <tr height="70%" bgcolor="white">
                 <td  style="background : #F7FAFB url(images/column.gif) no-repeat;" align="left" valign="top"> 

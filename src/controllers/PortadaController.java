@@ -42,7 +42,9 @@ public class PortadaController extends AbstractController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1) {
+		System.out.println(request.getHeader("User-Agent"));
+		
+		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
 			    mv.setViewName("mobile/Portada");
 				mv.addObject("ListaPartidos1",partidosTodos);
 				

@@ -13,6 +13,10 @@
 <bean name="/VerNota.htm" class="controllers.VerNotaController" >
     <property name="notasDAO" ref="NotasDAO" />
 </bean>
+
+<bean name="/" class="controllers.PortadaController" >
+    <property name="partidosDAO" ref="PartidosDAO" />
+</bean>
  
 <bean name="/Portada.htm" class="controllers.PortadaController" >
     <property name="partidosDAO" ref="PartidosDAO" />
