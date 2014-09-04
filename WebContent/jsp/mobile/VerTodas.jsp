@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -54,7 +55,7 @@ function formSubmit(partidoId){
       <td align="left" width="100%">
         <c:forEach items="${ListaPartidos}"  var="partido">
           <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>"
-               height="10%" width="10%"  onclick="formSubmit(${partido.getId()})"/>        
+               height="50%" width="12%"  onclick="formSubmit(${partido.getId()})"/>        
         </c:forEach>
       </td>
     </tr>
@@ -68,7 +69,7 @@ function formSubmit(partidoId){
   <table width="100%" cellspacing="2">       
     <c:forEach items="${ListaNotas}"  var="nota">
       <tr>
-        <td width="100%" style="background : #F7FAFB url(images/column.gif) no-repeat;">
+        <td width="100%" style="background : #F7FAFB;">
          <table>
            <tr>
              <td>
@@ -80,7 +81,7 @@ function formSubmit(partidoId){
            <tr>
              <td>     
                <font style="font-size: 150%">
-                  ${nota.getDescripcion()}
+                  ${fn:substring(nota.getDescripcion(), 0, 100)} ...
                </font>
              </td>
            </tr>
@@ -88,7 +89,7 @@ function formSubmit(partidoId){
              <td>    
               <c:forEach items="${nota.getPartidos()}"  var="partido">
                 <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>
-                     "height="5%" width="5%"  onclick="formSubmit(${partido.getId()})"/>        
+                     "height="20%" width="10%"  onclick="formSubmit(${partido.getId()})"/>        
               </c:forEach>          
              </td>
            </tr>

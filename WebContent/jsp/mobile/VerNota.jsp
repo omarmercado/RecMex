@@ -57,10 +57,11 @@
           <c:when test="${sessionScope.usuario > 0}">  
             <textarea name="txtDescripcion" id="txtDescripcion" style="outline:none;background-color: transparent;border:none" cols="60" rows="30">
                       ${nota.getDescripcion()} 
+             </textarea>
           </c:when>
           <c:when test="${empty sessionScope.usuario}">  
               <font style="font-size: 200%"><p align="justify">${nota.getDescripcion()}</p></font>
-            </textarea>
+            
           </c:when>
         </c:choose>
       </td>
@@ -92,7 +93,7 @@
       <td align="left">
         <c:forEach items="${nota.getPartidos()}"  var="partido">
           <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>
-               "height="10%" width="10%"/>        
+               "height="50%" width="12%"/>        
         </c:forEach>
       </td>
     </tr>

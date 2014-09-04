@@ -102,7 +102,7 @@
   </tr>
     <c:forEach items="${nota.getArticulos()}"  var="articulo">
       <tr> 
-        <td width="100%" style="background : #F7FAFB url(images/column.gif) no-repeat;">
+        <td width="100%" style="background : #F7FAFB;">
         <table>
           <tr><td>              
             <c:out value="${articulo.getTitulo()}"/>  <a href="http://<c:out value="${articulo.getUrl()}"/>" target="_blank">ir a articulo</a> 

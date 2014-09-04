@@ -48,15 +48,15 @@
   <tr>
       <c:forEach var="lista" items="${ListaPartidos1}">
         <c:forEach var="map" items="${lista}">
-          <td width="20%" height="300px" style="border: 1px solid #eee;background : #F7FAFB url(images/column.gif) no-repeat;">  
+          <td width="20%" height="300px" style="border: 1px solid #eee;background : #F7FAFB ;">  
             <table width="100%" height="100%">
               <tr height="30%"> 
-                <td height="30%" width="30%">
-                  <img src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>" width="50%"/>
+                <td>
+                   <img  src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>" width="50%"/>
                 </td> 
               </tr>
               <tr height="70%" bgcolor="white">
-                <td style="background : #F7FAFB url(images/column.gif) no-repeat;" align="left" valign="top">  
+                <td style="background : #F7FAFB;" align="left" valign="top">  
                   <ul> 
                     <c:forEach var="notas" items="${map.value}">
                       <li><a href="VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/></a></li>     
@@ -72,15 +72,15 @@
     <tr>
       <c:forEach var="lista" items="${ListaPartidos2}">
         <c:forEach var="map" items="${lista}">
-          <td width="20%" height="300px"  style="border: 1px solid #eee;background : #F7FAFB url(images/column.gif) no-repeat;">  
+          <td width="20%" height="300px"  style="border: 1px solid #eee;background : #F7FAFB;">  
             <table width="100%" height="100%">
               <tr height="30%"> 
                 <td height="30%" width="30%">
-                  <img src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>"width="50%"/>
+                  <img src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>"width="50%" height="100%"/>
                 </td> 
               </tr>
-              <tr height="70%" bgcolor="white">
-                <td  style="background : #F7FAFB url(images/column.gif) no-repeat;" align="left" valign="top"> 
+              <tr>
+                <td style="background : #F7FAFB;" align="left" valign="top"> 
                 <ul> 
                   <c:forEach var="notas" items="${map.value}">
                    <li><a href="/RecMex/VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/></a></li>     

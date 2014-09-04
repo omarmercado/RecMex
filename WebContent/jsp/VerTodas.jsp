@@ -59,7 +59,7 @@ function formSubmit(partidoId){
   <table width="100%">       
     <c:forEach items="${ListaNotas}"  var="nota">
       <tr>
-        <td width="100%" style="background : #F7FAFB url(images/column.gif) no-repeat;">
+        <td width="100%" style="background : #F7FAFB;">
          <table>
           <tr><td>              
             <c:out value="${nota.getTitulo()}"/>

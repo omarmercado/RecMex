@@ -47,7 +47,7 @@
 
 <table width="100%" height="90%">
   <tr>
-  <td width="100%" height="20%" style="border: 1px solid #eee;background : #F7FAFB url(images/column.gif) no-repeat;">  
+  <td width="100%" height="20%" style="border: 1px solid #eee;background : #F7FAFB;">  
       <c:forEach var="lista" items="${ListaPartidos1}">
         <c:forEach var="map" items="${lista}">
           
@@ -60,7 +60,7 @@
              <td width="5%"> </td>
               
               
-                <td style="background : #F7FAFB url(images/column.gif) no-repeat;" align="left" width="50%" valign="top">  
+                <td style="background : #F7FAFB;" align="left" width="50%" valign="top">  
                   <c:forEach var="notas" items="${map.value}">
                     <font style="font-size: 200%">
                       <a href="VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/> </a>  
