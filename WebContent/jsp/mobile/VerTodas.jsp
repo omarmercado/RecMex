@@ -29,7 +29,6 @@ function formSubmit(partidoId){
 <h1><span style="color:red; font-size:300%;">RecPolitica.com</span></h1>
 
 
-<div id="container">
 
 <div id="topnav">
 		<ul>
@@ -38,16 +37,17 @@ function formSubmit(partidoId){
 		</ul>
 </div>
 
+<div id="container">
 	
 
 <div id="content">
 
 <h2>Notas por Partido</h2>
-
+<br>
 
 <form name="frmVerTodas" id="frmVerTodas" action="VerTodas.htm" method="post">
   <input type="hidden" name="partidoId" id="partidoId">
-  <table width="100%" cellspacing="5"> 
+  <table width="100%" cellspacing="10"> 
   <tr><td> <font style="font-size: 300%">Elige el partido para ver sus Notas</font> </td></tr>   
     <tr align="left">    
      
@@ -61,24 +61,26 @@ function formSubmit(partidoId){
     </table>
 </form>
 
+<br>
+<br>
+<br>
 
-  <table width="100%">       
+  <table width="100%" cellspacing="2">       
     <c:forEach items="${ListaNotas}"  var="nota">
-    <hr>
       <tr>
         <td width="100%" style="background : #F7FAFB url(images/column.gif) no-repeat;">
          <table>
            <tr>
              <td>
-               <font style="font-size: 200%">       
-                 <c:out value="${nota.getTitulo()}"/>
+               <font style="font-size: 200%; font-style: italic;">       
+                 <a style="text-decoration:none;" href="VerNota.htm?notaId=<c:out value="${nota.getId()}"/>" >${nota.getTitulo()}</a> 
                </font>
              </td>
            </tr>
            <tr>
              <td>     
                <font style="font-size: 150%">
-                 <c:out value="${nota.getDescripcion()}"/>
+                  ${nota.getDescripcion()}
                </font>
              </td>
            </tr>
@@ -97,9 +99,9 @@ function formSubmit(partidoId){
         <td><font style="font-size: 160%">
           <a href="VerNota.htm?notaId=<c:out value="${nota.getId()}"/>" > ir a nota </a>
           </font>
-        </td>
+        </td>      
       </tr>
-      <hr>
+<tr height="20px"><td height="20px"></td></tr>
     </c:forEach>     
   </table>
 

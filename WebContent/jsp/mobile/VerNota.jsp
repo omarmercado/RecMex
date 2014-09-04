@@ -20,9 +20,6 @@
 
 <h1><span style="color:red; font-size:300%;">RecPolitica.com</span></h1>
 
-
-<div id="container">
-
 <div id="topnav">
 		<ul>
 		<li><font size="100%"><a href="Portada.htm">Portada</a></font></li>
@@ -30,7 +27,7 @@
 		</ul>
 </div>
 
-	
+<div id="container">
 
 <div id="content">
 

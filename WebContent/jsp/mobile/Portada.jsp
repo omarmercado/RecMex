@@ -22,21 +22,27 @@
 
 <h1><span style="color:red; font-size:300%;">RecPolitica.com</span></h1>
 
-
-
-
-<div id="container">
-
 <div id="topnav">
 		<ul>
 		<li><font size="100%"><a href="Portada.htm" title="">Portada</a></font></li>
 		<li><font size="100%"><a href="VerTodas.htm" title="">Ver Todas</a></font></li>
 		</ul>
 </div>
+
+<div id="container">
 	
 <div id="content">
 
-<h2>Ultimas Notas</h2>
+<table width="100%">
+  <tr>
+    <td align="left">
+      <h1>Ultimas Notas</h1>
+    </td>
+    <td align="right">
+      <h1>Ultima Actualizacion : ${Pagina.getUltimaActualizacion()}</h1>
+    </td>
+  </tr>
+</table>
 
 
 <table width="100%" height="90%">
@@ -57,15 +63,15 @@
                 <td style="background : #F7FAFB url(images/column.gif) no-repeat;" align="left" width="50%" valign="top">  
                   <c:forEach var="notas" items="${map.value}">
                     <font style="font-size: 200%">
-                      <a href="/RecMex/VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/> </a>  
+                      <a href="VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/> </a>  
                     </font>     
+                    <br><br>
                   </c:forEach>
                 </td>         
             
               </tr>
             
             </table>
-          
         </c:forEach>
       </c:forEach>
       </td>          

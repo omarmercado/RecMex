@@ -1,5 +1,6 @@
 package hibernate;
 
+import java.sql.Date;
 import java.util.Set;
 
 public class Nota {
@@ -9,6 +10,7 @@ public class Nota {
 	int id;
 	String Titulo;
 	String Descripcion;
+	Date Fecha;
 	Set<Partido> Partidos;
     Set<Articulo> Articulos;
     
@@ -42,14 +44,19 @@ public class Nota {
 	public void setArticulos(Set<Articulo> articulos) {
 		Articulos = articulos;
 	}
+	public Date getFecha() {
+		return Fecha;
+	}
+	public void setFecha(Date fecha) {
+		Fecha = fecha;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
 				+ ((Descripcion == null) ? 0 : Descripcion.hashCode());
-		result = prime * result
-				+ ((Partidos == null) ? 0 : Partidos.hashCode());
+		result = prime * result + ((Fecha == null) ? 0 : Fecha.hashCode());
 		result = prime * result + ((Titulo == null) ? 0 : Titulo.hashCode());
 		result = prime * result + id;
 		return result;
@@ -68,10 +75,10 @@ public class Nota {
 				return false;
 		} else if (!Descripcion.equals(other.Descripcion))
 			return false;
-		if (Partidos == null) {
-			if (other.Partidos != null)
+		if (Fecha == null) {
+			if (other.Fecha != null)
 				return false;
-		} else if (!Partidos.equals(other.Partidos))
+		} else if (!Fecha.equals(other.Fecha))
 			return false;
 		if (Titulo == null) {
 			if (other.Titulo != null)
@@ -82,6 +89,7 @@ public class Nota {
 			return false;
 		return true;
 	}
+
 
     
 }

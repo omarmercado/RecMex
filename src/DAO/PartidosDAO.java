@@ -51,18 +51,16 @@ public class PartidosDAO {
 		
 		for (Partido partido : resultadoQuery) {
 								
-			Query query = session.createQuery("select n.id, n.Titulo from Nota n join n.Partidos p  where p.id = :partidoId ");
-                          query.setParameter("partidoId", partido.getId()) ;
+			Query query = session.createQuery("select n.id, n.Titulo from Nota n join n.Partidos p  where p.id = :partidoId order by n.Fecha Desc");
+                          query.setParameter("partidoId", partido.getId()).setMaxResults(3) ;
           
 			map.put(partido,   query.list());
 			
 			response.add((Map<Partido, List<Nota>>) map.clone());
 			
 			map.clear();
-			System.out.println("AAA  : "+ response);
 		
 		}
-		System.out.println(response.size());
 		
 		session.getTransaction().commit();
 		return response;

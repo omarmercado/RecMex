@@ -33,7 +33,7 @@
 <table width="100%">
 <tr>
 <form name="EditarNotaForm" method="post" action="/EditarNota.htm">
-<td width="60%">
+<td width="60%" valign="left">
   <table width="100%" >
     <tr >
       <td width="100%">     
@@ -43,7 +43,7 @@
                              style="outline:none;background-color: transparent;border:none" value="<c:out value="${nota.getTitulo()}"/>"/> 
           </c:when>
           <c:when test="${empty sessionScope.usuario}">    
-            <label style="font-style: italic;">${nota.getTitulo()}</label>         
+            <label style="font-size: 150%;font-style: italic;">${nota.getTitulo()}</label>         
           </c:when>
         </c:choose>     
       </td>
@@ -52,12 +52,12 @@
       <td width="100%">
         <c:choose>
           <c:when test="${sessionScope.usuario > 0}">  
-            <label>" ${nota.getDescripcion()} "</label>
+            <textarea name="txtDescripcion" id="txtDescripcion" style="outline:none;background-color: transparent;border:none" cols="60" rows="30">
+              ${nota.getDescripcion()} 
+            </textarea>          
           </c:when>
           <c:when test="${empty sessionScope.usuario}">  
-            <textarea name="txtDescripcion" id="txtDescripcion" style="outline:none;background-color: transparent;border:none" cols="60" rows="30">
-                      ${nota.getDescripcion()} 
-            </textarea>
+            <p style="font-size: 130%">" ${nota.getDescripcion()} "</p>
           </c:when>
         </c:choose>
       </td>
@@ -65,7 +65,9 @@
     </table>
 </td>
 <input type="hidden" id="txtId" name="txtId" value="${nota.getId()}">
+<c:if test="${sessionScope.usuario > 0}">  
 <input type="submit" value="Editar" >
+</c:if>
 </form>
 
 <c:if test="${sessionScope.usuario > 0}">  
@@ -75,7 +77,7 @@
   </form>
 </c:if>
 
-<td width="40%">
+<td width="40%" valign="top">
   <table width="100%"> 
   <tr>
     <th align="left" style="font-weight: bolder;" >Partidos Involucrados</th>

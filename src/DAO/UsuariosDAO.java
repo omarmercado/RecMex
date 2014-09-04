@@ -51,11 +51,9 @@ public class UsuariosDAO {
 		
 		HttpSession session = request.getSession();
 		
-		Usuario usuario = (Usuario)session.getAttribute("usuario");
+		Integer usuario = (Integer) session.getAttribute("usuario");
 		
-		if(usuario.getEmail() == null || usuario.getEmail().trim().equals("")
-				|| usuario.getContrasena() == null ||  usuario.getContrasena().trim().equals("")				
-				){			
+		if(usuario == null || usuario == 0){			
 			res = 0;			
 		}
 		  

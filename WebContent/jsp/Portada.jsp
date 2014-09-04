@@ -33,8 +33,16 @@
 	
 <div id="content">
 
-<h2>Ultimas Notas</h2>
-
+<table width="100%">
+  <tr>
+    <td align="left">
+      <h1>Ultimas Notas</h1>
+    </td>
+    <td align="right">
+      <h1>Ultima Actualizacion : ${Pagina.getUltimaActualizacion()}</h1>
+    </td>
+  </tr>
+</table>
 
 <table width="100%" height="300px">
   <tr>

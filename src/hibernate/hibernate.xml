@@ -19,7 +19,8 @@
       <generator class="native"/>
     </id>
     <property name="Titulo"/>
-    <property name="Descripcion"/>
+    <property name="Descripcion" type="text"/>
+    <property name="Fecha"/>  
 
     <set name="Partidos" table="PARTIDO_NOTA" lazy="false">
       <key column="NOTA_ID"/>
@@ -55,6 +56,13 @@
     </id>
     <property name="Email"/>
     <property name="Contrasena"/>
+  </class>
+  
+    <class name="Pagina" table="PAGINA">
+    <id name="id" column="PAGINA_ID">
+      <generator class="native"/>
+    </id>
+    <property name="UltimaActualizacion"/>
   </class>
  
  </hibernate-mapping>

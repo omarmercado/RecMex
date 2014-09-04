@@ -38,7 +38,7 @@
     Titulo 
     </td>
     <td>
-    <form:input path="titulo"/>
+    <form:input path="titulo" maxlength="254"/>
     </td>
   </tr>
  <tr>
@@ -46,7 +46,7 @@
     Descripcion  
     </td>
     <td>
-    <form:textarea path="descripcion" rows="3" cols="25"/>
+    <form:textarea path="descripcion" rows="9" cols="24" />
     </td>
   </tr>
   <tr> 

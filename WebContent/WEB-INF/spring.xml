@@ -54,7 +54,11 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <bean id="ArticulosDAO" class="DAO.ArticulosDAO">
     <property name="sessionFactory" ref="mySessionFactory" />
   </bean>
-
+  
+  <bean id="PaginaDAO" class="DAO.PaginaDAO">
+    <property name="sessionFactory" ref="mySessionFactory" />
+  </bean>
+  
   <bean id="UsuariosDAO" class="DAO.UsuariosDAO">
     <property name="sessionFactory" ref="mySessionFactory" />
      <property name="hash5" ref="Hash5" />

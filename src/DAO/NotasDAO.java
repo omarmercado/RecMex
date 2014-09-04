@@ -1,11 +1,13 @@
 package DAO;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import hibernate.Articulo;
 import hibernate.Nota;
+import hibernate.Pagina;
 import hibernate.Partido;
 
 import org.hibernate.Query;
@@ -37,7 +39,19 @@ public class NotasDAO {
 		}
 		
 		nota.setPartidos(partidosSet);
+		
+		Date date = new Date(System.currentTimeMillis());
+		nota.setFecha(date);
+		
 		session.save(nota);
+		
+		Pagina pagina = (Pagina)session.get(Pagina.class, 1);
+		
+		Date actualizacion = new Date(System.currentTimeMillis());		
+		pagina.setUltimaActualizacion(actualizacion);
+		
+		session.update(pagina);
+		
 		session.getTransaction().commit();
 		
 	}
@@ -48,10 +62,6 @@ public class NotasDAO {
 		session.beginTransaction();	
 		Nota nota = (Nota)session.get(Nota.class,  Integer.parseInt(notaId.trim()));		
 
-		//	Nota nota = (Nota) session.createQuery
-        //("  from Nota n where n.id = ? ").setParameter(0, Integer.parseInt(notaId)).uniqueResult();
-
-		
 		session.getTransaction().commit();
 		Nota n = nota;
 		return n;
