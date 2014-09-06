@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Pagina {
 
-	Pagina(){}
+	public Pagina(){}
 	
 	int id;
 	Date UltimaActualizacion;

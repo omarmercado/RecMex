@@ -26,12 +26,24 @@
 		<ul>
 		<li><font size="100%"><a href="Portada.htm" title="">Portada</a></font></li>
 		<li><font size="100%"><a href="VerTodas.htm" title="">Ver Todas</a></font></li>
+		<li><font size="100%"><a href="VerTodasCasos.htm">Casos Especiales</a></font></li>						
 		</ul>
 </div>
+
+<table width="100%">
+  <tr>
+    <td align="right">
+       <p>Siguenos en Twitter : <a href="https://twitter.com/RecPolitica" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @RecPolitica</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
+</td>
+</tr>
+</table>
 
 <div id="container">
 	
 <div id="content">
+
 
 <table width="100%">
   <tr>
@@ -43,7 +55,7 @@
     </td>
   </tr>
 </table>
-
+<br>
 
 <table width="100%" height="90%">
   <tr>
@@ -53,7 +65,7 @@
           
             <table width="100%" height="100%">
               <tr height="30%"> 
-                <td width="45%">
+                <td width="35%">
                   <img  width="100%" src="img/<c:out value="${map.key.getImagen()}"/>.png" alt="<c:out value="${map.key.getNombre()}"/>"/>
                  </td> 
               
@@ -68,16 +80,35 @@
                     <br><br>
                   </c:forEach>
                 </td>         
-            
               </tr>
-            
             </table>
         </c:forEach>
       </c:forEach>
       </td>          
   </tr>
-
 </table>
+<hr>
+
+<h2>Casos Especiales</h2>
+
+
+<table width="90%">
+<c:forEach var="caso" items="${ListaCasos}">
+  <tr>
+  <td width="45%" height="30%" style="border: 1px solid #eee;background : #F7FAFB;">  
+   <a href="VerCaso.htm?casoId=<c:out value="${caso.getId()}"/>">
+    <img src="img/<c:out value="${caso.getImagen()}"/>.png" alt="<c:out value="${caso.getTitulo()}"/>" /> 
+    </a>
+  </td>          
+  </tr>
+  <tr>
+  <td>  
+    Ultima Actualizacion : ${caso.getUltimaActualizacion()} 
+  </td>          
+  </tr>
+  </c:forEach>
+</table>
+
 
 </div>
 

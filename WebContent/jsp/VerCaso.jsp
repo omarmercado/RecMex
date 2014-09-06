@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RecPolitica : Ver Nota</title>
+<title>RecPolitica : Ver Caso</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -37,11 +37,11 @@
 
 <div id="content">
 
-<h2>Nota</h2>
+<h4> Ultima Actualizacion : ${caso.getUltimaActualizacion()}</h4>
 
 <table width="100%">
 <tr>
-<form name="EditarNotaForm" method="post" action="/EditarNota.htm">
+<form name="EditarCasoForm" method="post" action="/EditarCaso.htm">
 <td width="60%" valign="left">
   <table width="100%" >
     <tr >
@@ -49,10 +49,10 @@
         <c:choose>
           <c:when test="${sessionScope.usuario > 0}">    
              <input type="text" name="txtTitulo" id="txtTitulo" 
-                             style="outline:none;background-color: transparent;border:none" value="<c:out value="${nota.getTitulo()}"/>"/> 
+                             style="outline:none;background-color: transparent;border:none" value="<c:out value="${caso.getTitulo()}"/>"/> 
           </c:when>
           <c:when test="${empty sessionScope.usuario}">    
-            <label style="font-size: 150%;font-style: italic;">${nota.getTitulo()}</label>         
+            <label style="font-size: 150%;font-style: italic;">${caso.getTitulo()}</label>         
           </c:when>
         </c:choose>     
       </td>
@@ -62,26 +62,26 @@
         <c:choose>
           <c:when test="${sessionScope.usuario > 0}">  
             <textarea name="txtDescripcion" id="txtDescripcion" style="outline:none;background-color: transparent;border:none" cols="60" rows="30">
-              ${nota.getDescripcion()} 
+              ${caso.getDescripcion()} 
             </textarea>          
           </c:when>
           <c:when test="${empty sessionScope.usuario}">  
-            <p style="font-size: 130%">" ${nota.getDescripcion()} "</p>
+            <p style="font-size: 130%">" ${caso.getDescripcion()} "</p>
           </c:when>
         </c:choose>
       </td>
     </tr>
     </table>
 </td>
-<input type="hidden" id="txtId" name="txtId" value="${nota.getId()}">
+<input type="hidden" id="txtId" name="txtId" value="${caso.getId()}">
 <c:if test="${sessionScope.usuario > 0}">  
 <input type="submit" value="Editar" >
 </c:if>
 </form>
 
 <c:if test="${sessionScope.usuario > 0}">  
-  <form name="EliminarNotaForm" action="/EliminarNota.htm" method="post">
-    <input type="hidden" id="txtId" name="txtId" value="${nota.getId()}">
+  <form name="EliminarCasoForm" action="/EliminarCaso.htm" method="post">
+    <input type="hidden" id="txtId" name="txtId" value="${caso.getId()}">
     <input type="submit" value="Borrar" >
   </form>
 </c:if>
@@ -93,7 +93,7 @@
   </tr>  
     <tr>     
       <td align="left">
-        <c:forEach items="${nota.getPartidos()}"  var="partido">
+        <c:forEach items="${caso.getPartidos()}"  var="partido">
           <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>
                "height="10%" width="10%"/>        
         </c:forEach>
@@ -104,12 +104,17 @@
 </tr>    
 </table>    
 
-  <c:forEach items="${nota.getArticulos()}"  var="articulo">    
-  <form name="EliminarArticuloForm" action="EliminarArticulo.htm" method="post">  
-  <table width="90%">       
+<table width="80%%">
   <tr>
-    <th width="30%"> Articulos Disponibles </th>
+    <td align="center">
+      <h2>Articulos Disponibles</h2>
+    </td>
   </tr>
+</table>
+
+<c:forEach items="${caso.getArticulos()}"  var="articulo">    
+  <form name="EliminarArticuloCasoForm" action="EliminarArticuloCaso.htm" method="post">  
+  <table width="90%">       
       <tr> 
         <td width="100%" style="background : #F7FAFB;">
         <table>
@@ -118,26 +123,27 @@
           </td></tr>
           <tr><td>     
              <p> Autor : <c:out value="${articulo.getAutor()}"/> </p>
-          
           <input type="hidden" id="txtId" name="txtId" value="${articulo.getId()}">
-          <input type="hidden" id="txtNotaId" name="txtNotaId" value="${nota.getId()}">
+          <input type="hidden" id="txtCasoId" name="txtCasoId" value="${caso.getId()}">
           
           <c:if test="${sessionScope.usuario > 0}">            
           <input type="submit" value="Eliminar">          
           </c:if>
+          
           </td></tr>
           </table>
         </td>
-      </tr>
+      </tr>     
   </table>
   </form>
-  </c:forEach>     
+  <br>
+</c:forEach>  
 </div>
 
 <c:if test="${sessionScope.usuario > 0}">
 <div>
-<form name="frmNewArticulo" method="post" action="NewArticulo.htm">
-<input id="notaId" name="notaId" type="hidden" value="${nota.getId()}"/>
+<form name="frmNewArticuloCaso" method="post" action="NewArticuloCaso.htm">
+<input id="casoId" name="casoId" type="hidden" value="${caso.getId()}"/>
   <table>
     <tr>
       <td>

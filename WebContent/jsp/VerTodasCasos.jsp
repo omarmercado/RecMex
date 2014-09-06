@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RecPolitica: Ver Todas</title>
+<title>RecPolitica: Ver Casos</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -45,39 +45,28 @@ function formSubmit(partidoId){
 
 <div id="content">
 
-<h2>Notas por Partido</h2>
+<h2>Casos a Seguir</h2>
 
-
-<form name="frmVerTodas" id="frmVerTodas" action="VerTodas.htm" method="post">
-  <input type="hidden" name="partidoId" id="partidoId">
-  <table width="100%"> 
-  <tr> <td width="100%"> Hacer Click sobre el partido qpara ver sus notas </td> </tr>   
-    <tr align="left">    
-     
-      <td align="left" width="100%">
-        <c:forEach items="${ListaPartidos}"  var="partido">
-          <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>"
-               height="10%" width="10%"  onclick="formSubmit(${partido.getId()})"/>        
-        </c:forEach>
-      </td>
-    </tr>
-    </table>
-</form>
 
 
   <table width="100%">       
-    <c:forEach items="${ListaNotas}"  var="nota">
+    <c:forEach items="${ListaCasos}"  var="caso">
       <tr>
         <td width="100%" style="background : #F7FAFB;">
          <table>
           <tr><td>              
-            <c:out value="${nota.getTitulo()}"/>
+            <font style="font-size: 200%">${caso.getTitulo()}</font>
+          </td></tr>
+          <tr><td>
+          <font style="font-size: 100%">
+          Ultima Actualizacion : ${caso.getUltimaActualizacion()}
+          </font>
           </td></tr>
           <tr><td>     
-            <c:out value="${nota.getDescripcion()}"/>
+            <c:out value="${caso.getDescripcion()}"/>
           </td></tr>
           <tr><td>    
-            <c:forEach items="${nota.getPartidos()}"  var="partido">
+            <c:forEach items="${caso.getPartidos()}"  var="partido">
               <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>
                    "height="5%" width="5%"  onclick="formSubmit(${partido.getId()})"/>        
             </c:forEach>          
@@ -86,9 +75,9 @@ function formSubmit(partidoId){
         </td>
       </tr>
       <tr>
-        <td>
-          <a href="VerNota.htm?notaId=<c:out value="${nota.getId()}"/>" > ir a nota </a>
-        </td>
+        <td><font style="font-size: 150%">
+          <a href="VerCaso.htm?casoId=<c:out value="${caso.getId()}"/>" > ir a caso </a>
+        </font></td>
       </tr>
     </c:forEach>     
   </table>

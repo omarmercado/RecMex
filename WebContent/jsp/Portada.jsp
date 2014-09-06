@@ -22,16 +22,28 @@
 		<ul>
 		<li><a href="Portada.htm">Portada</a></li>
 		<li><a href="VerTodas.htm">Ver Todas</a></li>
-		
+		<li><a href="VerTodasCasos.htm">Casos Especiales</a></li>				
 		<c:if test="${sessionScope.usuario > 0}">
           <li><a href="NuevoNota.htm">Nueva Nota</a></li>
+          <li><a href="NuevoCaso.htm">Nuevo Caso</a></li>
         </c:if>
-
 		</ul>
 </div>
 </div>
+
+<table width="100%">
+  <tr>
+    <td align="right">
+       <p>Siguenos en Twitter : <a href="https://twitter.com/RecPolitica" class="twitter-follow-button" data-show-count="false">Follow @RecPolitica</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</p>
+</td>
+</tr>
+</table>
 	
 <div id="content">
+
+
 
 <table width="100%">
   <tr>
@@ -93,6 +105,31 @@
         </c:forEach>
       </c:forEach>          
   </tr>
+</table>
+
+<h2>Casos Especiales</h2>
+
+<table >
+<tr>
+<c:forEach var="caso" items="${ListaCasos}">
+  <td width="25%" height="30%" style="border: 1px solid #eee;background : #F7FAFB;">  
+    <table>
+    <tr>
+      <td>
+        <a href="VerCaso.htm?casoId=<c:out value="${caso.getId()}"/>">
+          <img src="img/<c:out value="${caso.getImagen()}"/>.png" alt="<c:out value="${caso.getTitulo()}"/>" /> 
+        </a>
+      </td>          
+    </tr>
+    <tr>
+      <td>  
+        Ultima Actualizacion : ${caso.getUltimaActualizacion()} 
+      </td> 
+    </tr>  
+  </table>
+  </td>       
+  </c:forEach>
+</tr>
 </table>
 
 </div>

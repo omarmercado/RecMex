@@ -48,6 +48,12 @@
       <many-to-many column="NOTA_ID"
                     class="Nota"/>
     </set>
+    
+    <set name="Caso" table="ARTICULO_CASO">
+      <key column="ARTICULO_ID"/>
+      <many-to-many column="CASO_ID"
+                    class="Caso"/>
+    </set>    
   </class>
 
   <class name="Usuario" table="USUARIO" >
@@ -63,6 +69,28 @@
       <generator class="native"/>
     </id>
     <property name="UltimaActualizacion"/>
+  </class>
+  
+    <class name="Caso" table="CASO" >
+    <id name="id" column="CASO_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Titulo"/>
+    <property name="Descripcion" type="text"/>
+    <property name="Imagen"/>
+    <property name="UltimaActualizacion"/>  
+
+    <set name="Partidos" table="PARTIDO_CASO" lazy="false">
+      <key column="CASO_ID"/>
+      <many-to-many column="PARTIDO_ID"
+                    class="Partido"/>
+    </set>
+
+    <set name="Articulos" table="ARTICULO_CASO"  lazy="false">
+      <key column="CASO_ID"/>
+      <many-to-many column="ARTICULO_ID"
+                    class="Articulo"/>
+    </set>
   </class>
  
  </hibernate-mapping>

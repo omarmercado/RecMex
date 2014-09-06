@@ -1,5 +1,6 @@
 package controllers;
 
+import hibernate.Caso;
 import hibernate.Nota;
 import hibernate.Pagina;
 import hibernate.Partido;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
+import DAO.CasosDAO;
 import DAO.PaginaDAO;
 import DAO.PartidosDAO;
 
@@ -22,6 +24,7 @@ public class PortadaController extends AbstractController {
 
 	PartidosDAO partidosDAO;
 	PaginaDAO paginaDAO;
+	CasosDAO casosDAO;
 	
 	public PartidosDAO getPartidosDAO() {
 		return partidosDAO;
@@ -35,13 +38,24 @@ public class PortadaController extends AbstractController {
 	public void setPaginaDAO(PaginaDAO paginaDAO) {
 		this.paginaDAO = paginaDAO;
 	}
+	
+	
+	
+	public CasosDAO getCasosDAO() {
+		return casosDAO;
+	}
+	public void setCasosDAO(CasosDAO casosDAO) {
+		this.casosDAO = casosDAO;
+	}
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		List < Map<Partido,List<Nota>>> partidosTodos = new ArrayList<Map<Partido,List<Nota>>>();
+		List < Caso> ListaCasos = new ArrayList<Caso>();
 		
 		partidosTodos = partidosDAO.getAllInfo();
+		ListaCasos = casosDAO.getCasos();
 				
 		List< Map<Partido,List<Nota>>> ListaPartidos1 =  partidosTodos.subList(0, 4); 
 		List< Map<Partido,List<Nota>>> ListaPartidos2 = partidosTodos.subList(4, partidosTodos.size());		
@@ -50,7 +64,7 @@ public class PortadaController extends AbstractController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Pagina",pagina);
-		
+		mv.addObject("ListaCasos",ListaCasos);				
 	
 		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
 			    mv.setViewName("mobile/Portada");

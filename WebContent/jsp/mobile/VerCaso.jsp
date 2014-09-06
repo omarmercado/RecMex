@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RecPolitica : Ver Nota</title>
+<title>RecPolitica : Ver Caso</title>
 <link href="mobile/theme/style.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -43,7 +43,7 @@
 
 <div id="content">
 
-<h2>Nota</h2>
+<h2>Ultima Actualizacion : ${caso.getUltimaActualizacion()}</h2>
 
 <table width="100%" height="100%">
 <tr>
@@ -51,12 +51,12 @@
   <table width="100%" >
     <tr >
       <td width="100%">     
-            <label style="font-style: italic;font-size: 300%">${nota.getTitulo()}</label>         
+            <label style="font-style: italic;font-size: 300%">${caso.getTitulo()}</label>         
       </td>
     </tr>
     <tr>
       <td width="70%" align="center">
-              <font style="font-size: 200%"><p align="justify">${nota.getDescripcion()}</p></font>     
+              <font style="font-size: 200%"><p align="justify">${caso.getDescripcion()}</p></font>
       </td>
     </tr>
     </table>
@@ -71,7 +71,7 @@
   </tr>  
     <tr>     
       <td align="left">
-        <c:forEach items="${nota.getPartidos()}"  var="partido">
+        <c:forEach items="${caso.getPartidos()}"  var="partido">
           <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>
                "height="50%" width="12%"/>        
         </c:forEach>
@@ -82,11 +82,12 @@
 </tr>    
 </table>    
     
+    
   <table width="90%">       
   <tr>
     <th width="30%"><font style="font-size: 200%"> Articulos Disponibles</font> </th>
   </tr>
-    <c:forEach items="${nota.getArticulos()}"  var="articulo">
+    <c:forEach items="${caso.getArticulos()}"  var="articulo">
       <tr> 
         <td width="100%" >
         <table>
@@ -105,7 +106,6 @@
     </c:forEach>     
   </table>
 </div>
-
 
 <div id="footer"><p><a href="#">homepage</a> | <a href="mailto:denise@mitchinson.net">contact</a> | &copy; 2008 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> |  Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a></p></div>
 

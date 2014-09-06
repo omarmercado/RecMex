@@ -10,17 +10,25 @@
     <property name="usuariosDAO" ref="UsuariosDAO" />       
 </bean>
 
+<bean name="/NewArticuloCaso.htm" class="controllers.NewArticuloCasoController" >
+    <property name="articulosDAO" ref="ArticulosDAO" />
+    <property name="usuariosDAO" ref="UsuariosDAO" />       
+</bean>
+
 <bean name="/VerNota.htm" class="controllers.VerNotaController" >
     <property name="notasDAO" ref="NotasDAO" />
 </bean>
 
 <bean name="/" class="controllers.PortadaController" >
     <property name="partidosDAO" ref="PartidosDAO" />
+    <property name="paginaDAO" ref="PaginaDAO" />
+    <property name="casosDAO" ref="CasosDAO" />
 </bean>
  
 <bean name="/Portada.htm" class="controllers.PortadaController" >
     <property name="partidosDAO" ref="PartidosDAO" />
     <property name="paginaDAO" ref="PaginaDAO" />
+    <property name="casosDAO" ref="CasosDAO" />
 </bean>
 
 <bean name="/NuevoNota.htm" class="controllers.NuevoNotaController" >
@@ -35,6 +43,10 @@
     <property name="notasDAO" ref="NotasDAO" />          
 </bean>
 
+<bean name="/VerTodasCasos.htm" class="controllers.VerTodasCasosController" >
+    <property name="casosDAO" ref="CasosDAO" />          
+</bean>
+
 <bean name="/Ingresar.htm" class="controllers.UsuarioController" >
     <property name="usuariosDAO" ref="UsuariosDAO" />
 </bean>
@@ -42,8 +54,13 @@
  <bean name="/EliminarArticulo.htm" class="controllers.EliminarArticuloController" >
     <property name="articulosDAO" ref="ArticulosDAO" />
     <property name="notasDAO" ref="NotasDAO" />  
-    <property name="usuariosDAO" ref="UsuariosDAO" />
-            
+    <property name="usuariosDAO" ref="UsuariosDAO" />            
+</bean>
+
+ <bean name="/EliminarArticuloCaso.htm" class="controllers.EliminarArticuloCasoController" >
+    <property name="articulosDAO" ref="ArticulosDAO" />
+    <property name="casosDAO" ref="CasosDAO" />  
+    <property name="usuariosDAO" ref="UsuariosDAO" />            
 </bean>
 
  <bean name="/EditarNota.htm" class="controllers.EditarNotaController" >
@@ -56,6 +73,26 @@
     <property name="usuariosDAO" ref="UsuariosDAO" />       
 </bean>
 
+<bean name="/NuevoCaso.htm" class="controllers.NuevoCasoController" >
+    <property name="partidosDAO" ref="PartidosDAO" />
+    <property name="casosDAO" ref="CasosDAO" />   
+    <property name="usuariosDAO" ref="UsuariosDAO" />    
+    <property name="successView"  value="redirect:/Portada.htm" />
+</bean>  
+
+<bean name="/VerCaso.htm" class="controllers.VerCasoController" >
+    <property name="casosDAO" ref="CasosDAO" />
+</bean>
+
+ <bean name="/EditarCaso.htm" class="controllers.EditarCasoController" >
+    <property name="casosDAO" ref="CasosDAO" />
+    <property name="usuariosDAO" ref="UsuariosDAO" />
+</bean>
+
+ <bean name="/EliminarCaso.htm" class="controllers.EliminarCasoController" >
+    <property name="casosDAO" ref="CasosDAO" />   
+    <property name="usuariosDAO" ref="UsuariosDAO" />       
+ </bean>
 
     <bean id="viewResolver"
     	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >

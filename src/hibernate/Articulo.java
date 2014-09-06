@@ -8,6 +8,7 @@ public class Articulo {
 	
 	int id;
 	Set<Nota> Nota;
+	Set<Caso> Caso;
 	String Titulo;
 	String Autor;
 	String Url;
@@ -40,7 +41,14 @@ public class Articulo {
 	}
 	public void setUrl(String url) {
 		Url = url;
+	}	
+	public Set<Caso> getCaso() {
+		return Caso;
 	}
+	public void setCaso(Set<Caso> caso) {
+		Caso = caso;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -54,51 +54,38 @@ function formSubmit(partidoId){
 
 <div id="content">
 
-<h2>Notas por Partido</h2>
-<br>
-
-<form name="frmVerTodas" id="frmVerTodas" action="VerTodas.htm" method="post">
-  <input type="hidden" name="partidoId" id="partidoId">
-  <table width="100%" cellspacing="10"> 
-  <tr><td> <font style="font-size: 300%">Elige el partido para ver sus Notas</font> </td></tr>   
-    <tr align="left">    
-     
-      <td align="left" width="100%">
-        <c:forEach items="${ListaPartidos}"  var="partido">
-          <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>"
-               height="50%" width="12%"  onclick="formSubmit(${partido.getId()})"/>        
-        </c:forEach>
-      </td>
-    </tr>
-    </table>
-</form>
-
-<br>
-<br>
+<h2>Casos s Seguir</h2>
 <br>
 
   <table width="100%" cellspacing="2">       
-    <c:forEach items="${ListaNotas}"  var="nota">
+    <c:forEach items="${ListaCasos}"  var="caso">
       <tr>
         <td width="100%" style="background : #F7FAFB;">
          <table>
            <tr>
              <td>
                <font style="font-size: 200%; font-style: italic;">       
-                 <a style="text-decoration:none;" href="VerNota.htm?notaId=<c:out value="${nota.getId()}"/>" >${nota.getTitulo()}</a> 
+                 <a style="text-decoration:none;" href="VerCaso.htm?casoId=<c:out value="${caso.getId()}"/>" >${caso.getTitulo()}</a> 
                </font>
              </td>
            </tr>
+            <tr>
+             <td>
+               <font style="font-size: 150%; font-style: italic;">       
+                  Ultima Actualizacion : ${caso.getUltimaActualizacion()} 
+               </font>
+             </td>
+           </tr>           
            <tr>
              <td>     
                <font style="font-size: 150%">
-                  ${fn:substring(nota.getDescripcion(), 0, 100)} ...
+                  ${fn:substring(caso.getDescripcion(), 0, 100)} ...
                </font>
              </td>
            </tr>
            <tr>
              <td>    
-              <c:forEach items="${nota.getPartidos()}"  var="partido">
+              <c:forEach items="${caso.getPartidos()}"  var="partido">
                 <img src="img/<c:out value="${partido.getImagen()}"/>.png" alt="<c:out value="${partido.getNombre()}"/>
                      "height="20%" width="10%"  onclick="formSubmit(${partido.getId()})"/>        
               </c:forEach>          
@@ -109,7 +96,7 @@ function formSubmit(partidoId){
       </tr>
       <tr>
         <td><font style="font-size: 160%">
-          <a href="VerNota.htm?notaId=<c:out value="${nota.getId()}"/>" > ir a nota </a>
+          <a href="VerCaso.htm?casoId=<c:out value="${caso.getId()}"/>" > ir a caso </a>
           </font>
         </td>      
       </tr>

@@ -50,7 +50,11 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
   <bean id="NotasDAO" class="DAO.NotasDAO">
     <property name="sessionFactory" ref="mySessionFactory" />
   </bean>
-  
+
+  <bean id="CasosDAO" class="DAO.CasosDAO">
+    <property name="sessionFactory" ref="mySessionFactory" />
+  </bean>
+    
   <bean id="ArticulosDAO" class="DAO.ArticulosDAO">
     <property name="sessionFactory" ref="mySessionFactory" />
   </bean>

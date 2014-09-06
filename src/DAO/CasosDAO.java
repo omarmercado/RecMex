@@ -1,20 +1,24 @@
 package DAO;
 
-import java.sql.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import hibernate.Articulo;
+import hibernate.Caso;
 import hibernate.Nota;
 import hibernate.Pagina;
 import hibernate.Partido;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class NotasDAO {
+public class CasosDAO {
+	
 
 	SessionFactory sessionFactory;
 	
@@ -27,7 +31,7 @@ public class NotasDAO {
 	
 	
 	
-	public void insertNota(Nota nota, String[] partidos){		
+	public void insertCaso(Caso caso, String[] partidos){		
 		
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
@@ -38,12 +42,12 @@ public class NotasDAO {
 			partidosSet.add((Partido)session.get(Partido.class, Integer.parseInt(partidoId.trim())));			
 		}
 		
-		nota.setPartidos(partidosSet);
+		caso.setPartidos(partidosSet);
 		
 		Date date = new Date(System.currentTimeMillis());
-		nota.setFecha(date);
+		caso.setUltimaActualizacion(date);
 		
-		session.save(nota);
+		session.save(caso);
 		
 		Pagina pagina = new Pagina();
 		
@@ -57,54 +61,55 @@ public class NotasDAO {
 		
 	}
 	
-	public Nota getNota(String notaId){		
+	public Caso getCaso(String casoId){		
 		
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();	
-		Nota nota = (Nota)session.get(Nota.class,  Integer.parseInt(notaId.trim()));		
+		Caso caso = (Caso)session.get(Caso.class,  Integer.parseInt(casoId.trim()));		
 
 		session.getTransaction().commit();
-		Nota n = nota;
-		return n;
+		Caso c = caso;
+		return c;
+	}
+	
+	public Caso EditarCaso(String id, String titulo, String descripcion){
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		Caso caso = (Caso)session.get(Caso.class, Integer.parseInt(id));
+		caso.setTitulo(titulo);
+		caso.setDescripcion(descripcion);
+		session.save(caso);
+		session.getTransaction().commit();
+
+		return caso;
 	}
 
+	public void EliminarCaso(String id){
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		Caso caso = (Caso)session.get(Caso.class, Integer.parseInt(id));
+		session.delete(caso);
+		
+		session.getTransaction().commit();
+
+	}
 	
-	public List getNotaPorPartido(String partidoId){		
+	public List getCasos(){		
 		
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();	
 			
 
-	    List<Nota> ListaNotas =  session.createQuery
-        (" select n from Nota n join n.Partidos p where p.id = ? ").setParameter(0, Integer.parseInt(partidoId)).list();
+	    List<Caso> ListaCasos =  session.createQuery
+        (" select c from Caso c ").list();
 
 		
 		session.getTransaction().commit();
 		
-		return ListaNotas;
+		return ListaCasos;
 	}
 	
-	public void EliminarNota(String id){
-		Session session = sessionFactory.getCurrentSession();
-		session.beginTransaction();
-		
-		Nota nota = (Nota)session.get(Nota.class, Integer.parseInt(id));
-		session.delete(nota);
-		
-		session.getTransaction().commit();
-
-	}
 	
-	public Nota EditarNota(String id, String titulo, String descripcion){
-		Session session = sessionFactory.getCurrentSession();
-		session.beginTransaction();
-		
-		Nota nota = (Nota)session.get(Nota.class, Integer.parseInt(id));
-		nota.setTitulo(titulo);
-		nota.setDescripcion(descripcion);
-		session.save(nota);
-		session.getTransaction().commit();
-
-		return nota;
-	}
 }
