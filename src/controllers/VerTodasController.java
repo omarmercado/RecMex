@@ -3,6 +3,8 @@ package controllers;
 import hibernate.Nota;
 import hibernate.Partido;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,13 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
 import DAO.NotasDAO;
+import DAO.PaginaDAO;
 import DAO.PartidosDAO;
 
 public class VerTodasController extends AbstractController{
 	
 	PartidosDAO partidosDAO;
 	NotasDAO notasDAO;
-	
+	PaginaDAO paginaDAO;
+
 	public PartidosDAO getPartidosDAO() {
 		return partidosDAO;
 	}
@@ -28,6 +32,12 @@ public class VerTodasController extends AbstractController{
 	}
 	public void setNotasDAO(NotasDAO notasDAO) {
 		this.notasDAO = notasDAO;
+	}
+	public PaginaDAO getPaginaDAO() {
+		return paginaDAO;
+	}
+	public void setPaginaDAO(PaginaDAO paginaDAO) {
+		this.paginaDAO = paginaDAO;
 	}
 
 	@Override
@@ -44,17 +54,18 @@ public class VerTodasController extends AbstractController{
 		if(partidoId != null && ! partidoId.isEmpty() ){
 		    ListaNotas = notasDAO.getNotaPorPartido(partidoId);}
 		
+		Map<String, String> VersionInfo = paginaDAO.getVersion(request, "VerTodas"); 
+		mv.setViewName(VersionInfo.get("View"));
+
 		
-		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
-			    mv.setViewName("mobile/VerTodas");
-			  } else {
-				    mv.setViewName("/VerTodas");
-			  }
-		  
-		
+	
 		mv.addObject("ListaPartidos", ListaPartidos);
 		mv.addObject("ListaNotas", ListaNotas);
 		
+	    String tipo = VersionInfo.get("Tipo").trim();
+
+		paginaDAO.pageView("VerTodas", "",tipo);
+
 		
 		return mv;
 	}

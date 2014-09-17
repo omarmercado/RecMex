@@ -66,19 +66,22 @@ public class PortadaController extends AbstractController {
 		mv.addObject("Pagina",pagina);
 		mv.addObject("ListaCasos",ListaCasos);				
 	
-		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
-			    mv.setViewName("mobile/Portada");
-				mv.addObject("ListaPartidos1",partidosTodos);
-				
-					    			    
+		Map<String, String> VersionInfo = paginaDAO.getVersion(request, "Portada"); 
+
+		mv.setViewName(VersionInfo.get("View"));
+
+		if(VersionInfo.get("Tipo").trim().equals("M")){
+				mv.addObject("ListaPartidos1",partidosTodos);									    			    
 			  } else {
-				    mv.setViewName("/Portada");
 					mv.addObject("ListaPartidos1",ListaPartidos1);
 					mv.addObject("ListaPartidos2",ListaPartidos2);
 			  }
 		
 		
-	
+	    String tipo = VersionInfo.get("Tipo").trim();
+
+			paginaDAO.pageView("Portada", "",tipo);
+
 		
 		
 	

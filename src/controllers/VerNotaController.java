@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,11 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
 import DAO.NotasDAO;
+import DAO.PaginaDAO;
 
 public class VerNotaController extends AbstractController {
 
 	NotasDAO notasDAO;
-	
+	PaginaDAO paginaDAO;
+
 	public NotasDAO getNotasDAO() {
 		return notasDAO;
 	}
@@ -21,7 +25,12 @@ public class VerNotaController extends AbstractController {
 		this.notasDAO = notasDAO;
 	}
 
-
+	public PaginaDAO getPaginaDAO() {
+		return paginaDAO;
+	}
+	public void setPaginaDAO(PaginaDAO paginaDAO) {
+		this.paginaDAO = paginaDAO;
+	}
 
 	
 	@Override
@@ -35,14 +44,15 @@ public class VerNotaController extends AbstractController {
 	
 		ModelAndView mv = new ModelAndView();
 		
-		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
-			    mv.setViewName("mobile/VerNota");
-			  } else {
-				    mv.setViewName("/VerNota");
-			  }
-		  
+		Map<String, String> VersionInfo = paginaDAO.getVersion(request, "VerNota"); 
+		mv.setViewName(VersionInfo.get("View"));
+
+
 		mv.addObject(nota);
-		
+	    String tipo = VersionInfo.get("Tipo").trim();
+
+		paginaDAO.pageView("VerNota",notaId, tipo);
+
 		
 		return mv;
 	}

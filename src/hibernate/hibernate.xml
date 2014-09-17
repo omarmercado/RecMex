@@ -93,4 +93,13 @@
     </set>
   </class>
  
+      <class name="PageView" table="PAGEVIEW" >
+    <id name="id" column="PAGEVIEW_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Pagina"/>
+    <property name="ExtraInfo"/>
+    <property name="Tipo"/>
+  </class> 
+  
  </hibernate-mapping>

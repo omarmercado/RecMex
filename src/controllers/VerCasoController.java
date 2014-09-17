@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Map;
+
 import hibernate.Caso;
 import hibernate.Nota;
 
@@ -10,11 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
 import DAO.CasosDAO;
+import DAO.PaginaDAO;
 
 public class VerCasoController  extends AbstractController {
 
 	CasosDAO casosDAO;
-	
+	PaginaDAO paginaDAO;
+
 	public CasosDAO getCasosDAO() {
 		return casosDAO;
 	}
@@ -22,6 +26,12 @@ public class VerCasoController  extends AbstractController {
 		this.casosDAO = casosDAO;
 	}
 
+	public PaginaDAO getPaginaDAO() {
+		return paginaDAO;
+	}
+	public void setPaginaDAO(PaginaDAO paginaDAO) {
+		this.paginaDAO = paginaDAO;
+	}
 
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
@@ -34,14 +44,17 @@ public class VerCasoController  extends AbstractController {
 	
 		ModelAndView mv = new ModelAndView();
 		
-		  if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {
-			    mv.setViewName("mobile/VerCaso");
-			  } else {
-				    mv.setViewName("/VerCaso");
-			  }
+		Map<String, String> VersionInfo = paginaDAO.getVersion(request, "VerCaso"); 
+		mv.setViewName(VersionInfo.get("View"));
+
+
 		  
 		mv.addObject(caso);
 		
+	    String tipo = VersionInfo.get("Tipo").trim();
+
+		paginaDAO.pageView("VerCaso", casoId ,tipo);
+
 		
 		return mv;
 	}

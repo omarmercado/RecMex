@@ -4,7 +4,6 @@ padding : 0;
 }
 body {
 color : #4E6D95;
-background : #3D5965 url(images/bg.jpg) repeat-x;
 width : 100%;
 font : 75% "lucida sans", "Trebuchet MS", Arial, Helvetica, Tahoma, sans-serif;
 }
@@ -32,14 +31,13 @@ background : #fff;
 			/*header*/
 #top {
 padding : 1em;
-height:100px;
-background : #3D5965 url(images/top.gif) no-repeat;
-color : #fff;
+height:110px;
+background : url(images/REC.png) no-repeat;
 }
 #top h1 {letter-spacing: 3px;
 float:center;
 padding : 30px 0 10px 40px;
-margin-left : 130px;
+margin-left : 180px;
 font-size : 40pt;
 color: red;
 background : transparent;
@@ -101,8 +99,6 @@ padding : .5em 0 1em 0;
 font-size : 0.9em;
 border-bottom : 0px solid #808080;
 border-top : 0px solid #808080;
-color : #333;
-background : #3D5965 url(images/footer.gif) no-repeat;
 }
 #footer img {
 float : right;
