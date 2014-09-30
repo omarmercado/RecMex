@@ -41,7 +41,17 @@ public class PaginaDAO {
 		String response;
 		String tipo;
 		
-		if(request.getHeader("User-Agent").indexOf("Mobile") != -1 || request.getHeader("User-Agent").indexOf("Android") != -1) {		  
+		String header = request.getHeader("User-Agent");
+		
+		if(header.toLowerCase().indexOf("mobile") != -1 ||
+		   header.toLowerCase().indexOf("android") != -1 ||
+		   header.toLowerCase().indexOf("phone") != -1 ||
+		   header.toLowerCase().indexOf("blackberry") != -1 ||
+		   header.toLowerCase().indexOf("mini") != -1 ||
+		   header.toLowerCase().indexOf("mobi") != -1||
+		   header.toLowerCase().indexOf("ipad") != -1||
+		   header.toLowerCase().indexOf("iphone") != -1)
+		{		  
 			  response = "mobile/"+view;
 			  tipo ="M";
 		}

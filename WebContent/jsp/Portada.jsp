@@ -20,9 +20,9 @@
 <div id="navcontainer">
 <div id="topnav">
 		<ul>
-		<li><a href="Portada.htm">Portada</a></li>
-		<li><a href="VerTodas.htm">Ver Todas</a></li>
-		<li><a href="VerTodasCasos.htm">Casos Especiales</a></li>				
+		<li><a href="Portada.htm"><font style="font-size: 120%">Portada</font></a></li>
+		<li><a href="VerTodas.htm"><font style="font-size: 120%">Ver Todas</font></a></li>
+		<li><a href="VerTodasCasos.htm"><font style="font-size: 120%">Casos Especiales</font></a></li>				
 		<c:if test="${sessionScope.usuario > 0}">
           <li><a href="NuevoNota.htm">Nueva Nota</a></li>
           <li><a href="NuevoCaso.htm">Nuevo Caso</a></li>
@@ -33,11 +33,24 @@
 
 <table width="100%">
   <tr>
+    <td align="left">
+  </td>
     <td align="right">
        <p>Siguenos en Twitter : <a href="https://twitter.com/RecPolitica" class="twitter-follow-button" data-show-count="false">Follow @RecPolitica</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </p>
 </td>
+</tr>
+<tr>
+<td align="left">
+<font style="font-size: 200%">
+ Rompiendo el Ciclo Noticioso de 24 Horas
+  </font>
+  </td>
+<td align="right">
+Email : RecPolitica@outlook.com
+</td>
+
 </tr>
 </table>
 	
@@ -71,7 +84,7 @@
                 <td style="background : #F7FAFB;" align="left" valign="top">  
                   <ul> 
                     <c:forEach var="notas" items="${map.value}">
-                      <li><a href="VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/></a></li>     
+                      <li><a href="VerNota.htm?notaId=<c:out value="${notas[0]}"/>"><font style="font-size: 120%"> <c:out value="${notas[1]}"/></font></a></li>     
                     </c:forEach>
                   </ul>
                 </td>         
@@ -95,7 +108,7 @@
                 <td style="background : #F7FAFB;" align="left" valign="top"> 
                 <ul> 
                   <c:forEach var="notas" items="${map.value}">
-                   <li><a href="/RecMex/VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <c:out value="${notas[1]}"/></a></li>     
+                   <li><a href="/RecMex/VerNota.htm?notaId=<c:out value="${notas[0]}"/>"> <font style="font-size: 120%"><c:out value="${notas[1]}"/></font></a></li>     
                   </c:forEach>
                  </ul>
                 </td>         

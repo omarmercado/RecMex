@@ -42,7 +42,7 @@
 <bean name="/VerTodas.htm" class="controllers.VerTodasController" >
     <property name="partidosDAO" ref="PartidosDAO" />
     <property name="notasDAO" ref="NotasDAO" />   
-    <property name="partidosDAO" ref="PartidosDAO" />       
+    <property name="paginaDAO" ref="PaginaDAO" />       
 </bean>
 
 <bean name="/VerTodasCasos.htm" class="controllers.VerTodasCasosController" >

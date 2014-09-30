@@ -11,7 +11,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
  
    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
       <property name="location">
-         <value>file:C:\Users\omar\Desktop\PROYECYOS\Properties\RecPolitica.properties</value>
+       <value>file:C:\Users\omar\Desktop\PROYECYOS\Properties\RecPolitica.properties</value>  
+      <!--      <value>file:///media/DISCO1/PROPS/RecPolitica.properties</value> -->
       </property> 
    </bean>
   

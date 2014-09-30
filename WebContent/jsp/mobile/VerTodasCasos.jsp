@@ -41,11 +41,24 @@ function formSubmit(partidoId){
 
 <table width="100%">
   <tr>
+    <td align="left">
+  </td>
     <td align="right">
-       <p>Siguenos en Twitter : <a href="https://twitter.com/RecPolitica" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @RecPolitica</a>
+       <p>Siguenos en <font style="font-size: 200%">Twitter : </font><a href="https://twitter.com/RecPolitica" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @RecPolitica</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </p>
 </td>
+</tr>
+<tr>
+<td align="left">
+<font style="font-size: 200%">
+ Rompiendo el Ciclo Noticioso de 24 Horas
+  </font>
+  </td>
+<td align="right">
+<font style="font-size: 200%">Email : RecPolitica@outlook.com</font>
+</td>
+
 </tr>
 </table>
 
@@ -54,7 +67,7 @@ function formSubmit(partidoId){
 
 <div id="content">
 
-<h2>Casos s Seguir</h2>
+<h2>Casos A Seguir</h2>
 <br>
 
   <table width="100%" cellspacing="2">       
@@ -64,7 +77,7 @@ function formSubmit(partidoId){
          <table>
            <tr>
              <td>
-               <font style="font-size: 200%; font-style: italic;">       
+               <font style="font-size: 300%;">       
                  <a style="text-decoration:none;" href="VerCaso.htm?casoId=<c:out value="${caso.getId()}"/>" >${caso.getTitulo()}</a> 
                </font>
              </td>
@@ -77,8 +90,8 @@ function formSubmit(partidoId){
              </td>
            </tr>           
            <tr>
-             <td>     
-               <font style="font-size: 150%">
+             <td>     <br><br>
+               <font style="font-size: 200%;line-height: 1.2" >
                   ${fn:substring(caso.getDescripcion(), 0, 100)} ...
                </font>
              </td>
@@ -95,19 +108,20 @@ function formSubmit(partidoId){
         </td>
       </tr>
       <tr>
-        <td><font style="font-size: 160%">
+        <td><font style="font-size: 190%">
           <a href="VerCaso.htm?casoId=<c:out value="${caso.getId()}"/>" > ir a caso </a>
           </font>
         </td>      
       </tr>
 <tr height="20px"><td height="20px"></td></tr>
+<hr>
     </c:forEach>     
   </table>
 
 
 </div>
 
-<div id="footer"><p><a href="#">homepage</a> | <a href="mailto:denise@mitchinson.net">contact</a> | &copy; 2008 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> |  Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a></p></div>
+<div id="footer"><p><a href="Portada.htm">homepage</a> | <a href="mailto:RecPolitica@outlook.com">contact</a></p></div>
 
 </div>
 

@@ -30,11 +30,24 @@
 
 <table width="100%">
   <tr>
+    <td align="left">
+  </td>
     <td align="right">
-       <p>Siguenos en Twitter : <a href="https://twitter.com/RecPolitica" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @RecPolitica</a>
+       <p>Siguenos en <font style="font-size: 200%">Twitter :</font> <a href="https://twitter.com/RecPolitica" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @RecPolitica</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </p>
 </td>
+</tr>
+<tr>
+<td align="left">
+<font style="font-size: 200%">
+ Rompiendo el Ciclo Noticioso de 24 Horas
+  </font>
+  </td>
+<td align="right">
+ <font style="font-size: 200%">Email : RecPolitica@outlook.com</font>
+</td>
+
 </tr>
 </table>
 
@@ -51,12 +64,12 @@
   <table width="100%" >
     <tr >
       <td width="100%">     
-            <label style="font-style: italic;font-size: 300%">${nota.getTitulo()}</label>         
+            <label style="font-style: italic;font-size: 300%;line-height: 1.2">${nota.getTitulo()}</label>         
       </td>
     </tr>
     <tr>
       <td width="70%" align="center">
-              <font style="font-size: 200%"><p align="justify">${nota.getDescripcion()}</p></font>     
+              <font style="font-size: 200%;line-height: 1.2"><p align="justify">${nota.getDescripcion()}</p></font>     
       </td>
     </tr>
     </table>
@@ -96,7 +109,7 @@
             </font>
           </td></tr>
           <tr><td>     
-             <p> Autor : <font style="font-size: 100%">   <c:out value="${articulo.getAutor()}"/> </font> </p>
+             <p> <font style="font-size: 150%"> Autor :  <c:out value="${articulo.getAutor()}"/> </font> </p>
 
           </td></tr>
           </table>
@@ -107,7 +120,7 @@
 </div>
 
 
-<div id="footer"><p><a href="#">homepage</a> | <a href="mailto:denise@mitchinson.net">contact</a> | &copy; 2008 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> |  Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a></p></div>
+<div id="footer"><p><a href="Portada.htm">homepage</a> | <a href="mailto:RecPolitica@outlook.com">contact</a></p></div>
 
 </div>
 </body>
